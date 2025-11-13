@@ -24,8 +24,10 @@ terminus backup:create ${SITE_NAME}.live
 # Deploy upstream updates
 terminus env:deploy ${SITE_NAME}.live --updatedb --note="Deploy core and contrib updates"
 
+AZQS2="3162cc4c-2f75-40cb-8487-0c69bda99f39"
+AZQS3="8d8f8753-0cbc-46e1-aee6-e628f720a798"
 CURRENT_UPSTREAM=$(terminus site:info ${SITE_NAME} --field upstream | sed 's/:.*$//g')
-if [[ "${CURRENT_UPSTREAM}" == "3162cc4c-2f75-40cb-8487-0c69bda99f39" ]]; then
+if [[ "${CURRENT_UPSTREAM}" == "${AZQS3}" ]]; then
   terminus drush ${SITE_NAME}.live -- -n -y updatedb
   terminus drush ${SITE_NAME}.live -- -n -y state:set config_sync.update_mode 1 --input-format=integer
   terminus drush ${SITE_NAME}.live -- -n -y config-distro-update

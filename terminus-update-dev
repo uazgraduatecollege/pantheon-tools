@@ -26,9 +26,11 @@ terminus site:upstream:clear-cache ${SITE_NAME}
 terminus upstream:updates:status ${SITE_NAME}.dev
 terminus upstream:updates:apply --accept-upstream -- ${SITE_NAME}.dev
 
-# If AZQS 2, run extra drush steps
+# If AZQS, run extra drush steps
+AZQS2="3162cc4c-2f75-40cb-8487-0c69bda99f39"
+AZQS3="8d8f8753-0cbc-46e1-aee6-e628f720a798"
 CURRENT_UPSTREAM=$(terminus site:info ${SITE_NAME} --field upstream | sed 's/:.*$//g')
-if [[ "${CURRENT_UPSTREAM}" == "3162cc4c-2f75-40cb-8487-0c69bda99f39" ]]; then
+if [[ "${CURRENT_UPSTREAM}" == "${AZQS3}" ]]; then
   terminus drush ${SITE_NAME}.dev -- -n -y updatedb
   terminus drush ${SITE_NAME}.dev -- -n -y state:set config_sync.update_mode 1 --input-format=integer
   terminus drush ${SITE_NAME}.dev -- -n -y config-distro-update --update-mode=1
