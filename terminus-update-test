@@ -38,4 +38,5 @@ if [[ "${CURRENT_UPSTREAM}" == "${AZQS3}" ]]; then
 fi
 
 terminus env:clear-cache ${SITE_NAME}.test
+terminus drush ${SITE_NAME}.test -- -n -y cache:rebuild
 

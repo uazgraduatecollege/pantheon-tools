@@ -37,3 +37,6 @@ if [[ "${CURRENT_UPSTREAM}" == "${AZQS3}" ]]; then
   terminus drush ${SITE_NAME}.dev -- -n -y az-core-config-add-permissions
 fi
 
+terminus env:clear-cache ${SITE_NAME}.dev
+terminus drush ${SITE_NAME}.dev -- -n -y cache:rebuild
+
