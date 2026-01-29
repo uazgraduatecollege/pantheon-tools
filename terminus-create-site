@@ -6,7 +6,7 @@
 # Defaults:
 #  - org: UA Campus Web Services
 #  - region: United States
-#  - upstream: Arizona Quickstart 2 
+#  - upstream: Arizona Quickstart 3
 #
 
 if [[ -z ${SITE_NAME} ]]; then
@@ -16,19 +16,19 @@ fi
 
 if [[ -z ${SITE_LABEL} ]]; then
     SITE_LABEL=${SITE_NAME}
-fi 
+fi
 
 if [[ -z ${REGION} ]]; then
     REGION="us"
-fi 
+fi
 
 if [[ -z ${ORG} ]]; then
     ORG="ua-campus-web-services"
-fi 
+fi
 
 if [[ -z ${UPSTREAM} ]]; then
-    UPSTREAM="3162cc4c-2f75-40cb-8487-0c69bda99f39"
-fi 
+    UPSTREAM="8d8f8753-0cbc-46e1-aee6-e628f720a798"
+fi
 
 echo ""
 echo -e "\e[33;44m---Creating ${SITE_NAME}.dev---\e[0m"
