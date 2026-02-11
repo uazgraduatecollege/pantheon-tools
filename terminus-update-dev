@@ -2,7 +2,7 @@
 
 #
 # Update script using terminus + drush to apply
-# Arizona Quickstart 2 upstream & Config Distro updates:
+# Arizona Quickstart 3 upstream & Config Distro updates:
 # DEV instances
 #
 
@@ -27,7 +27,6 @@ terminus upstream:updates:status ${SITE_NAME}.dev
 terminus upstream:updates:apply --accept-upstream -- ${SITE_NAME}.dev
 
 # If AZQS, run extra drush steps
-AZQS2="3162cc4c-2f75-40cb-8487-0c69bda99f39"
 AZQS3="8d8f8753-0cbc-46e1-aee6-e628f720a798"
 CURRENT_UPSTREAM=$(terminus site:info ${SITE_NAME} --field upstream | sed 's/:.*$//g')
 if [[ "${CURRENT_UPSTREAM}" == "${AZQS3}" ]]; then
